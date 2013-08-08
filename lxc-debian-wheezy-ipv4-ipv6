@@ -85,6 +85,7 @@ EOF
     echo 0 > $rootfs/selinux/enforce
 
     # configure the network using the dhcp
+    # NOTE: needs to be changed probably
     cat <<EOF > $rootfs/etc/network/interfaces
 auto lo
 iface lo inet loopback
@@ -255,12 +256,20 @@ lxc.mount.entry=devpts $rootfs/dev/pts devpts defaults 0 0
 lxc.mount.entry=sysfs $rootfs/sys sysfs defaults  0 0
 
 # networking
-
 lxc.utsname = $name
+
+# first interface: IPv4
+# it shall be configured in container's /etc/network/interfaces
 lxc.network.type = veth
-lxc.network.flags = up
+lxc.network.name = eth0
 lxc.network.link = br0
-lxc.network.ipv4 = 0.0.0.0/24
+lxc.network.hwaddr = 00:1E:$(hex):$(hex):$(hex):$(hex)
+
+# second interface for IPv6
+# same: configure it in container's /etc/network/interfaces
+lxc.network.type = veth
+lxc.network.name = eth1
+lxc.network.link = br1
 lxc.network.hwaddr = 00:1E:$(hex):$(hex):$(hex):$(hex)
 EOF
 
