@@ -27,7 +27,7 @@
 # Further modified by KheOps for use on servers where we want
 # two network interfaces on the container: eth0 for IPv4 and
 # eth1 for IPv6. Both should be integrated in two distinct
-# bridge interfaces running on the host: br0 (v4) and br1 (v6).
+# bridge interfaces on the host: br0 (v4) and br1 (v6).
 # 
 # A likely configuration is to have br0 configured with Class C
 # LAN addresses and the host forwarding to containers depending
