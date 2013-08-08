@@ -25,8 +25,8 @@
 # I use it for my FreedomBox project: http://freedomboxblog.nl
 # ==============================================================
 # Further modified by KheOps for use on servers where we want
-# two network interfaces on the container: one with IPv4 and
-# one with IPv6. Both should be integrated in two distinct
+# two network interfaces on the container: eth0 for IPv4 and
+# eth1 for IPv6. Both should be integrated in two distinct
 # bridge interfaces running on the host: br0 (v4) and br1 (v6).
 # 
 # A likely configuration is to have br0 configured with Class C
@@ -43,7 +43,7 @@
 # [container's eth0: LAN IPv4] <> [host's br0: LAN IPv4]
 # [container's eth1: public IPv6] <> [host's br1: public IPv6]
 # + include host's public interface to br1 and set IPv4
-# addresses.
+# addresses ; set NAT iptables rules for v4 on host.
 # ==============================================================
 
 
