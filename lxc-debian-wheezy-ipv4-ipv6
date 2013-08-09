@@ -132,7 +132,7 @@ ifupdown,\
 locales,\
 libui-dialog-perl,\
 dialog,\
-isc-dhcp-client,\
+vim,\
 netbase,\
 net-tools,\
 iproute,\
