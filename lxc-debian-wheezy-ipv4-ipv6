@@ -282,6 +282,19 @@ lxc.network.type = veth
 lxc.network.name = eth1
 lxc.network.link = br1
 lxc.network.hwaddr = 00:1E:$(hex):$(hex):$(hex):$(hex)
+
+# Capabilities dropping (for a more restricted container) - see capabilities(7)
+lxc.cap.drop = audit_control
+lxc.cap.drop = audit_write
+# lxc.cap.drop = mac_admin
+# lxc.cap.drop = mac_override
+lxc.cap.drop = mknod
+# lxc.cap.drop = setpcap
+lxc.cap.drop = sys_admin
+# lxc.cap.drop = sys_boot
+lxc.cap.drop = sys_module
+lxc.cap.drop = sys_rawio
+lxc.cap.drop = sys_time
 EOF
 
     if [ $? -ne 0 ]; then
