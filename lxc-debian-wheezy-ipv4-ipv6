@@ -295,6 +295,8 @@ lxc.cap.drop = sys_admin
 lxc.cap.drop = sys_module
 lxc.cap.drop = sys_rawio
 lxc.cap.drop = sys_time
+# in case IP addresses etc. must not be changed:
+# lxc.cap.drop = net_admin
 EOF
 
     if [ $? -ne 0 ]; then
